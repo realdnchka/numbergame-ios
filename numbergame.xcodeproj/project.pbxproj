@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		64D466AB2CC859F5004F7BB7 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 64D466AA2CC859F5004F7BB7 /* config.json */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6411108F2CC84FB500743D8B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,11 +31,25 @@
 		6411107E2CC84FB300743D8B /* numbergame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = numbergame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6411108E2CC84FB500743D8B /* numbergameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = numbergameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		641110982CC84FB500743D8B /* numbergameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = numbergameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		64D466AA2CC859F5004F7BB7 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		64D466AD2CC85C92004F7BB7 /* Exceptions for "numbergame" folder in "numbergame" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6411107D2CC84FB300743D8B /* numbergame */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		641110802CC84FB300743D8B /* numbergame */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				64D466AD2CC85C92004F7BB7 /* Exceptions for "numbergame" folder in "numbergame" target */,
+			);
 			path = numbergame;
 			sourceTree = "<group>";
 		};
@@ -75,6 +93,7 @@
 		641110752CC84FB300743D8B = {
 			isa = PBXGroup;
 			children = (
+				64D466AA2CC859F5004F7BB7 /* config.json */,
 				641110802CC84FB300743D8B /* numbergame */,
 				641110912CC84FB500743D8B /* numbergameTests */,
 				6411109B2CC84FB500743D8B /* numbergameUITests */,
@@ -212,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64D466AB2CC859F5004F7BB7 /* config.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,9 +419,9 @@
 				DEVELOPMENT_TEAM = PX2CMWRQJ3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = numbergame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -428,9 +448,9 @@
 				DEVELOPMENT_TEAM = PX2CMWRQJ3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = numbergame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
