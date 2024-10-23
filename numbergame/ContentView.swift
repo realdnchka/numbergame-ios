@@ -8,38 +8,42 @@ struct ContentView: View {
     @State var isNumbersLoading: Bool = true
     
     var body: some View {
-        VStack {
-            Text("\(currentSum)")
-            Text("\(sum ?? 999)")
-            if isNumbersLoading {
-                HStack {
-                    ForEach(numbers?.numbers.indices ?? 0..<5, id: \.self) {
-                        index in NumberButtonLoading()
+        ZStack{
+            Color("Background")
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Text("\(currentSum)")
+                Text("\(sum ?? 999)")
+                if isNumbersLoading {
+                    HStack {
+                        ForEach(numbers?.numbers.indices ?? 0..<5, id: \.self) {
+                            n in NumberButtonLoading()
+                        }
                     }
-                }
-            } else {
-                HStack {
-                    ForEach(numbers?.numbers.indices ?? 0..<5, id: \.self) {
-                        index in NumberButton(
-                            currentSum: $currentSum,
-                            isPressed: $isPressedStates[index],
-                            text: numbers?.numbers[index].formatted() ?? "1"
-                        )
+                } else {
+                    HStack {
+                        ForEach(numbers?.numbers.indices ?? 0..<5, id: \.self) {
+                            index in NumberButton(
+                                currentSum: $currentSum,
+                                isPressed: $isPressedStates[index],
+                                text: numbers?.numbers[index].formatted() ?? "1"
+                            )
+                        }
                     }
-                }
-                .onChange(of: currentSum) {
-                    if currentSum == sum {
-                        Task {
-                            await newSetOfNumbers()
-                        }  
+                    .onChange(of: currentSum) {
+                        if currentSum == sum {
+                            Task {
+                                await newSetOfNumbers()
+                            }
+                        }
                     }
                 }
             }
-        }
-        .padding()
-        .onAppear() {
-            Task {
-                await newSetOfNumbers()
+            .padding()
+            .onAppear() {
+                Task {
+                    await newSetOfNumbers()
+                }
             }
         }
     }
@@ -54,5 +58,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView( currentSum: 0)
+    ContentView()
 }

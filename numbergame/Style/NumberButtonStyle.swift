@@ -39,6 +39,20 @@ struct UnPressedButtonStyle: ButtonStyle {
         }
 }
 
+struct LoadingButtonStyle: ButtonStyle {
+    let buttonColor: Color = Color("Button")
+    let fontColor: Color = Color("FontButton")
+    
+    func makeBody(configuration: Configuration) -> some View {
+            configuration.label
+            .frame(width:64, height: 64)
+            .font(.system(size: 42))
+            .background(buttonColor)
+            .cornerRadius(10)
+            .shadow(radius: 2)
+        }
+}
+
 struct AnyButtonStyle: ButtonStyle {
     private let makeBody: (Configuration) -> AnyView
 

@@ -7,6 +7,7 @@
 
 import SwiftUICore
 import SwiftUI
+import Combine
 
 struct NumberButton: View {
     @Binding var currentSum: Int
@@ -36,13 +37,26 @@ struct NumberButton: View {
 }
 
 struct NumberButtonLoading: View {
+    @State var start = UnitPoint(x: -1, y: 0.5)
+    @State var end = UnitPoint(x: 0, y: 0.5)
+    
     var body: some View {
         Button(action: {}) {
-            ProgressView()
-                .tint(Color("FontButton"))
+            LinearGradient(gradient: Gradient(colors: [Color("ButtonLoadingStart"), Color("ButtonLoadingEnd"), Color("ButtonLoadingStart")]), startPoint: start, endPoint: end)
+                .mask(RoundedRectangle(cornerRadius: 10))
+                .frame(width: 64, height: 64)
+                .onAppear() {
+                    withAnimation(.easeInOut(duration: 0.7).repeatForever(autoreverses: false)) {
+                        self.start = UnitPoint(x: 1, y: 0.5)
+                        self.end = UnitPoint(x: 2, y: 0.5)
+                    }
+                }
         }
-        .buttonStyle(UnPressedButtonStyle())
         .disabled(true)
-        .font(.system(size: 100))
+        .buttonStyle(LoadingButtonStyle())
     }
+}
+
+#Preview {
+    NumberButtonLoading()
 }
