@@ -8,8 +8,8 @@
 import Foundation
 
 func getNumbers(count: Int = 5) async -> Numbers {
-    let url = "\(Config.shared.url)/getNumbers?count=\(count)"
-    let (data, _) = try! await URLSession.shared.data(from: URL(string: url)!)
+    let url = URL(string: "\(Config.apiURL)/getNumbers?count=\(count)")!
+    let (data, _) = try! await URLSession.shared.data(from: url)
     let numbers = try! JSONDecoder().decode(Numbers.self, from: data)
     return numbers
 }
