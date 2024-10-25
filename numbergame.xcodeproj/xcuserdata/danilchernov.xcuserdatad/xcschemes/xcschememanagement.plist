@@ -4,10 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>numbergame-local.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>numbergame.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>6411107D2CC84FB300743D8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6411108D2CC84FB500743D8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>641110972CC84FB500743D8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

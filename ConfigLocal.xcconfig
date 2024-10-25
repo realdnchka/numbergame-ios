@@ -1,5 +1,5 @@
 //
-//  Config.xcconfig
+//  ConfigLocal.xcconfig
 //  numbergame
 //
 //  Created by Danil Chernov on 25/10/24.
@@ -8,5 +8,9 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-//API URL
-API_URL =
+//API URL and Protocol
+PROTOCOL = http:/
+API_URL = $(PROTOCOL)/localhost:80/
+
+//API KEY
+API_KEY = 

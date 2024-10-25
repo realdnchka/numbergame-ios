@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64370B662CCB254F007B3763 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 64370B652CCB254F007B3763 /* Config.xcconfig */; };
+		64370B662CCB254F007B3763 /* ConfigLocal.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 64370B652CCB254F007B3763 /* ConfigLocal.xcconfig */; };
+		64540F7B2CCB4B8C00D5E17E /* ConfigProd.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 64540F7A2CCB4B8C00D5E17E /* ConfigProd.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +32,8 @@
 		6411107E2CC84FB300743D8B /* numbergame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = numbergame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6411108E2CC84FB500743D8B /* numbergameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = numbergameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		641110982CC84FB500743D8B /* numbergameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = numbergameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		64370B652CCB254F007B3763 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		64370B652CCB254F007B3763 /* ConfigLocal.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigLocal.xcconfig; sourceTree = "<group>"; };
+		64540F7A2CCB4B8C00D5E17E /* ConfigProd.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigProd.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -93,7 +95,8 @@
 		641110752CC84FB300743D8B = {
 			isa = PBXGroup;
 			children = (
-				64370B652CCB254F007B3763 /* Config.xcconfig */,
+				64370B652CCB254F007B3763 /* ConfigLocal.xcconfig */,
+				64540F7A2CCB4B8C00D5E17E /* ConfigProd.xcconfig */,
 				641110802CC84FB300743D8B /* numbergame */,
 				641110912CC84FB500743D8B /* numbergameTests */,
 				6411109B2CC84FB500743D8B /* numbergameUITests */,
@@ -231,7 +234,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64370B662CCB254F007B3763 /* Config.xcconfig in Resources */,
+				64540F7B2CCB4B8C00D5E17E /* ConfigProd.xcconfig in Resources */,
+				64370B662CCB254F007B3763 /* ConfigLocal.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +295,7 @@
 /* Begin XCBuildConfiguration section */
 		641110A02CC84FB500743D8B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64370B652CCB254F007B3763 /* Config.xcconfig */;
+			baseConfigurationReference = 64370B652CCB254F007B3763 /* ConfigLocal.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -353,9 +357,9 @@
 			};
 			name = Debug;
 		};
-		641110A12CC84FB500743D8B /* Release */ = {
+		641110A12CC84FB500743D8B /* Local */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64370B652CCB254F007B3763 /* Config.xcconfig */;
+			baseConfigurationReference = 64370B652CCB254F007B3763 /* ConfigLocal.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -408,7 +412,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Local;
 		};
 		641110A32CC84FB500743D8B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -441,7 +445,7 @@
 			};
 			name = Debug;
 		};
-		641110A42CC84FB500743D8B /* Release */ = {
+		641110A42CC84FB500743D8B /* Local */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -470,7 +474,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Release;
+			name = Local;
 		};
 		641110A62CC84FB500743D8B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -491,7 +495,7 @@
 			};
 			name = Debug;
 		};
-		641110A72CC84FB500743D8B /* Release */ = {
+		641110A72CC84FB500743D8B /* Local */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,7 +512,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/numbergame.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/numbergame";
 			};
-			name = Release;
+			name = Local;
 		};
 		641110A92CC84FB500743D8B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -527,7 +531,7 @@
 			};
 			name = Debug;
 		};
-		641110AA2CC84FB500743D8B /* Release */ = {
+		641110AA2CC84FB500743D8B /* Local */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -542,7 +546,131 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = numbergame;
 			};
-			name = Release;
+			name = Local;
+		};
+		64540F762CCB4B6700D5E17E /* Prod */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64540F7A2CCB4B8C00D5E17E /* ConfigProd.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Prod;
+		};
+		64540F772CCB4B6700D5E17E /* Prod */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"numbergame/Preview Content\"";
+				DEVELOPMENT_TEAM = PX2CMWRQJ3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = numbergame/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Numberle;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = danilchernov.numbergame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Prod;
+		};
+		64540F782CCB4B6700D5E17E /* Prod */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PX2CMWRQJ3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = danilchernov.numbergameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/numbergame.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/numbergame";
+			};
+			name = Prod;
+		};
+		64540F792CCB4B6700D5E17E /* Prod */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PX2CMWRQJ3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = danilchernov.numbergameUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = numbergame;
+			};
+			name = Prod;
 		};
 /* End XCBuildConfiguration section */
 
@@ -551,37 +679,41 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				641110A02CC84FB500743D8B /* Debug */,
-				641110A12CC84FB500743D8B /* Release */,
+				641110A12CC84FB500743D8B /* Local */,
+				64540F762CCB4B6700D5E17E /* Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Local;
 		};
 		641110A22CC84FB500743D8B /* Build configuration list for PBXNativeTarget "numbergame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				641110A32CC84FB500743D8B /* Debug */,
-				641110A42CC84FB500743D8B /* Release */,
+				641110A42CC84FB500743D8B /* Local */,
+				64540F772CCB4B6700D5E17E /* Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Local;
 		};
 		641110A52CC84FB500743D8B /* Build configuration list for PBXNativeTarget "numbergameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				641110A62CC84FB500743D8B /* Debug */,
-				641110A72CC84FB500743D8B /* Release */,
+				641110A72CC84FB500743D8B /* Local */,
+				64540F782CCB4B6700D5E17E /* Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Local;
 		};
 		641110A82CC84FB500743D8B /* Build configuration list for PBXNativeTarget "numbergameUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				641110A92CC84FB500743D8B /* Debug */,
-				641110AA2CC84FB500743D8B /* Release */,
+				641110AA2CC84FB500743D8B /* Local */,
+				64540F792CCB4B6700D5E17E /* Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Local;
 		};
 /* End XCConfigurationList section */
 	};
