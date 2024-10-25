@@ -46,7 +46,6 @@ struct GameView: View {
     }
     func newSetOfNumbers() async {
         isNumbersLoading = true
-//        try? await Task.sleep(nanoseconds: 60_000_000_000)
         numbers = await getNumbers(count: 5)
         isNumbersLoading = false
         currentSum = 0

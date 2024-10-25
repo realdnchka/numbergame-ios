@@ -13,7 +13,7 @@ struct MainMenu: View {
     @State var isShowingMenu: Bool = false
     @State var isButtonPressed: Bool = false
     @State private var rotationAngle = -0.1
-    @State private var size = 128.0
+    @State private var size = 256.0
     @State private var blur = 1.0
     var body: some View {
         NavigationStack {
@@ -47,7 +47,6 @@ struct MainMenu: View {
                             }
                         Divider()
                         MenuButton2(text: menuItems[0], destination: GameView(numbers: numbers, sum: numbers?.sum))
-                        
                         MenuButton(text: menuItems[1], isDisabled: true,action: {})
                         MenuButton(text: menuItems[2], isDisabled: true,action: {})
                         MenuButton(text: menuItems[3], isDisabled: true,action: {})

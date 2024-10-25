@@ -1,4 +1,4 @@
 # iOS implementation of Numbergame
 
 ### Configuration
-Put into `Config.xcconfig` you values
+Put into `ConfigLocal.xcconfig` your values
