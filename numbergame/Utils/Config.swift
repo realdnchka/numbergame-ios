@@ -8,30 +8,25 @@
 import Foundation
 
 class Config {
-    static let shared = Config()
-    private var configData: ConfigData?
-    var url: URL = URL(string: "http://localhost:80/")! 
-    
-    private init() {
-        configData = readConfig()
-        url = URL(string: configData?.url ?? "http://localhost:80/")!
+    enum Keys {
+        static let api_url = "API_URL"
+        static let api_key = "API_KEY"
     }
     
-    private func readConfig() -> ConfigData? {
-        guard let file = Bundle.main.url(forResource: "config", withExtension: "json")
-        else {
-            return nil
+    private static func getValue(key: String) -> String {
+        guard let value = Config.infoDictionary[key] as? String else {
+            fatalError("Could not get value for key: \(key)")
         }
-        
-        do {
-            let decoder = JSONDecoder()
-            return try decoder.decode(ConfigData.self, from: Data(contentsOf: file))
-        } catch {
-            return nil
-        }
+        return value
     }
-}
-
-struct ConfigData: Decodable {
-    let url: String
+    
+    private static let infoDictionary: [String: Any] = {
+        guard let infoDictionary = Bundle.main.infoDictionary else {
+            fatalError("Could not get info dictionary")
+        }
+        return infoDictionary
+    }()
+    
+    static let apiURL: String = getValue(key: Keys.api_url)
+    static let apiKey: String = getValue(key: Keys.api_key)
 }

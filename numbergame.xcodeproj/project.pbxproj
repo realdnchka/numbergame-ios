@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64D466AB2CC859F5004F7BB7 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 64D466AA2CC859F5004F7BB7 /* config.json */; };
+		64370B662CCB254F007B3763 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 64370B652CCB254F007B3763 /* Config.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +31,7 @@
 		6411107E2CC84FB300743D8B /* numbergame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = numbergame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6411108E2CC84FB500743D8B /* numbergameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = numbergameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		641110982CC84FB500743D8B /* numbergameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = numbergameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		64D466AA2CC859F5004F7BB7 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		64370B652CCB254F007B3763 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -93,7 +93,7 @@
 		641110752CC84FB300743D8B = {
 			isa = PBXGroup;
 			children = (
-				64D466AA2CC859F5004F7BB7 /* config.json */,
+				64370B652CCB254F007B3763 /* Config.xcconfig */,
 				641110802CC84FB300743D8B /* numbergame */,
 				641110912CC84FB500743D8B /* numbergameTests */,
 				6411109B2CC84FB500743D8B /* numbergameUITests */,
@@ -231,7 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64D466AB2CC859F5004F7BB7 /* config.json in Resources */,
+				64370B662CCB254F007B3763 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +291,7 @@
 /* Begin XCBuildConfiguration section */
 		641110A02CC84FB500743D8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64370B652CCB254F007B3763 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -354,6 +355,7 @@
 		};
 		641110A12CC84FB500743D8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64370B652CCB254F007B3763 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
