@@ -12,14 +12,14 @@ struct MenuButtonStyle: ButtonStyle {
     let fontColor: Color = Color("FontButton")
     
     func makeBody(configuration: Configuration) -> some View {
-            configuration.label
-            .frame(width:256, height: 52)
-            .font(.system(size: 32))
+        configuration.label
+            .frame(width: 116, height: 32)
+            .font(.system(size: 16))
             .foregroundColor(fontColor)
             .background(buttonColor)
             .cornerRadius(15)
-            .shadow(radius: 2)
-        }
+            .shadow(radius: 5.0)
+    }
 }
 
 struct MenuButtonPressedStyle: ButtonStyle {
@@ -27,12 +27,12 @@ struct MenuButtonPressedStyle: ButtonStyle {
     let fontColor: Color = Color("FontButtonPressed")
     
     func makeBody(configuration: Configuration) -> some View {
-            configuration.label
-            .frame(width:256, height: 52)
-            .font(.system(size: 32))
+        configuration.label
+            .frame(width: 116, height: 32)
+            .font(.system(size: 16))
             .foregroundColor(fontColor)
             .background(buttonColor)
             .cornerRadius(15)
-            .shadow(radius: 2)
-        }
+            .shadow(radius: 5.0)
+    }
 }

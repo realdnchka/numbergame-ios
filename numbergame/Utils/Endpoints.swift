@@ -83,6 +83,41 @@ func loginUser(username: String, token: String) async throws -> Bool {
     }
 }
 
+func userGetData() async throws -> User {
+    do {
+        let username = UserDefaults.standard.string(forKey: "username")!
+        let response: User = try await RequestBuilder()
+            .withEndpoint(endpoint: "userGetData")
+            .withQueryParam(name: "username", value: username)
+            .withMethod(method: .GET)
+            .sendRequest()
+            .decodeResponse()
+        
+        return response
+    } catch {
+        throw error
+    }
+}
+
+func sendScore(score: Int) async throws {
+    do {
+        try await RequestBuilder()
+            .withEndpoint(endpoint: "sendScore")
+            .withBody(User(username: UserDefaults.standard.string(forKey: "username")!, highscore: score, total_scores: 0, token: UserDefaults.standard.string(forKey: "token")!))
+            .withMethod(method: .POST)
+            .sendRequest()
+    } catch {
+        throw error
+    }
+}
+
+struct User: Codable {
+    let username: String
+    let highscore: Int
+    let total_scores: Int
+    let token: String
+}
+
 struct UserRegister: Codable {
     let username: String
 }
