@@ -8,26 +8,35 @@
 import SwiftUICore
 import SwiftUI
 
-struct MenuButton: View {
-    var text: String
-    var isDisabled: Bool = false
-    var isPressed: Bool = false
-    var action: () -> Void
-    
-    var body: some View {
-        
-        Button {
-            action()
-        } label: {
-            Text(text)
-        }
-        .buttonStyle(isPressed ? AnyButtonStyle(MenuButtonPressedStyle()) : AnyButtonStyle(MenuButtonStyle()))
-        .disabled(isDisabled)
-        .animation(.easeInOut(duration: 0.2), value: isPressed)
-    }
-}
+//struct MenuButton: View {
+//    var text: String
+//    var isDisabled: Bool = false
+//    var isPressed: Bool = false
+//    var destination: AnyView
+//    @State var showDestination: Bool = false
+//    
+//    var body: some View {
+//        
+//        Button(text) {
+//            withAnimation(.easeInOut) {
+//                showDestination.toggle()
+//            }
+//        }
+//        .buttonStyle(isPressed || isDisabled ? AnyButtonStyle(MenuButtonPressedStyle()) : AnyButtonStyle(MenuButtonStyle()))
+//        .disabled(isDisabled)
+//        .animation(.easeInOut(duration: 0.2), value: isPressed)
+//        .frame(width: 116, height: 32)
+//        .cornerRadius(15.0)
+//        .shadow(radius: 5.0)
+//        
+//        if showDestination {
+//            destination
+//                .transition(.opacity)
+//        }
+//    }
+//}
 
-struct MenuButton2<Destination: View>: View {
+struct MenuButton<Destination: View>: View {
     var text: String
     var isDisabled: Bool = false
     @State var isPressed: Bool = false
@@ -53,5 +62,8 @@ struct MenuButton2<Destination: View>: View {
         .buttonStyle(isPressed || isDisabled ? AnyButtonStyle(MenuButtonPressedStyle()) : AnyButtonStyle(MenuButtonStyle()))
         .disabled(isDisabled)
         .animation(.easeInOut(duration: 0.2), value: isPressed)
+        .frame(width: 116, height: 32)
+        .cornerRadius(15.0)
+        .shadow(radius: 5.0)
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct numbergameApp: App {
     var body: some Scene {
         WindowGroup {
-            MainMenu()
+            LoginView()
         }
     }
 }
