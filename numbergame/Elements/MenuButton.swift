@@ -33,8 +33,5 @@ struct MenuButton<Destination: View>: View {
         .buttonStyle(isPressed || isDisabled ? AnyButtonStyle(MenuButtonPressedStyle()) : AnyButtonStyle(MenuButtonStyle()))
         .disabled(isDisabled)
         .animation(.easeInOut(duration: 0.2), value: isPressed)
-        .frame(width: 116, height: 32)
-        .cornerRadius(15.0)
-        .shadow(radius: 5.0)
     }
 }

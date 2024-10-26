@@ -13,6 +13,9 @@ struct GameView: View {
     //Timer variables
     @StateObject var countdownTimer = CountdownTimer(duration: 60)
     
+    //Score variables
+    @State var score: Int = 0
+    
     //Game Over popup
     @State var showGameOver = false
    
@@ -21,8 +24,15 @@ struct GameView: View {
             Color("Background")
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                GameTimer(countdownTimer: countdownTimer)
+                HStack {
+                    Spacer()
+                    GameTimer(countdownTimer: countdownTimer)
+                    Spacer()
+                    Text("\(score)")
+                }
+                Spacer()
                 Text("\(sum ?? 999)")
+                    .padding(10.0)
                 
                 if isNumbersLoading {
                     HStack {
@@ -45,6 +55,7 @@ struct GameView: View {
                     .onChange(of: currentSum) {
                         if currentSum == sum {
                             Task {
+                                score += Int.random(in: 80...110)
                                 await newSetOfNumbers()
                             }
                         }
@@ -52,9 +63,15 @@ struct GameView: View {
                     .onChange(of: countdownTimer.timeRemaining) {
                         if countdownTimer.timeRemaining == 0 {
                             showGameOver.toggle()
+                            Task {
+                                if try await userGetData().highscore < score {
+                                    try await sendScore(score: score)
+                                }
+                            }
                         }
                     }
                 }
+                Spacer()
             }
             .padding()
             .navigationBarBackButtonHidden(true)
@@ -64,7 +81,7 @@ struct GameView: View {
         .overlay(
             Group {
                 if showGameOver {
-                    GameOver(isPresented: $showGameOver)
+                    PopupGameOver()
                 }
         })
         .onAppear() {
