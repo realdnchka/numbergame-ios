@@ -9,6 +9,8 @@ import Foundation
 
 class RequestBuilder {
     private var request: URLRequest
+    private var data: Data = Data()
+    private var response: HTTPURLResponse = HTTPURLResponse()
     
     init() {
         self.request = URLRequest(url: URL(string: Config.apiURL)!)
@@ -34,14 +36,66 @@ class RequestBuilder {
         return self
     }
     
-    func sendRequest<T: Codable>() async throws -> T{
-        request.addValue(Config.apiKey, forHTTPHeaderField: "Authorization")
-        
-        let (data, _) = try await URLSession.shared.data(for: request)
-        
-        let decodedData = try JSONDecoder().decode(T.self, from: data)
-        return decodedData
+    func withBody<T: Encodable>(_ body: T) -> RequestBuilder {
+        request.httpBody = try? JSONEncoder().encode(body)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        return self
     }
+    
+    func logRequest(_ request: URLRequest) {
+        print("🚀 [Request] \(request.httpMethod ?? "No HTTP Method") \(request.url?.absoluteString ?? "No URL")")
+        
+        if let headers = request.allHTTPHeaderFields {
+            print("Headers:")
+            for (key, value) in headers {
+                print("  \(key): \(value)")
+            }
+        }
+        
+        if let body = request.httpBody,
+           let bodyString = String(data: body, encoding: .utf8) {
+            print("Body:")
+            print(bodyString)
+        } else {
+            print("No Body")
+        }
+    }
+    
+    func sendRequest() async throws -> RequestBuilder {
+        request.addValue(Config.apiKey, forHTTPHeaderField: "Authorization")
+        logRequest(request)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw URLError(.badServerResponse)
+        }
+        
+        self.data = data
+        self.response = httpResponse
+        
+        return self
+    }
+    
+    func decodeResponse<T: Codable>() async throws -> T {
+        return try JSONDecoder().decode(T.self, from: self.data)
+    }
+    
+    func getResponse() async throws -> HTTPURLResponse {
+        return self.response
+    }
+    
+    func decodeAndResponse<T: Codable>() async throws -> (T, HTTPURLResponse) {
+        return try await (decodeResponse(), getResponse())
+    }
+    
+}
+
+enum APIError: Error {
+    case invalidURL
+    case invalidResponse
+    case invalidData
+    case invalidStatusCode
 }
 
 enum ApiMethod: String {
