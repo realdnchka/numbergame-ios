@@ -22,7 +22,10 @@ struct UserProfile: View {
                         Loader()
                     } else {
                         Text("Username: \(UserDefaults.standard.string(forKey: "username") ?? "Unknown")")
-                        Text("Highest score: \(user?.highscore ?? 0000)")
+                        HStack {
+                            Text("Highest score: ")
+                            Score(scores: user?.highscore ?? 0)
+                        }
                     }
                 }
             }

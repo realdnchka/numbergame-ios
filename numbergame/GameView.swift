@@ -18,21 +18,26 @@ struct GameView: View {
     
     //Game Over popup
     @State var showGameOver = false
-   
+    
     var body: some View {
         ZStack{
             Color("Background")
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 HStack {
-                    Spacer()
-                    GameTimer(countdownTimer: countdownTimer)
-                    Spacer()
-                    Text("\(score)")
+                    ZStack {
+                        GameTimer(countdownTimer: countdownTimer)
+                        HStack {
+                            Spacer()
+                            Spacer()
+                            Score(scores: score)
+                        }
+                    }
                 }
+                
                 Spacer()
-                Text("\(sum ?? 999)")
-                    .padding(10.0)
+                SumButton(sum: sum ?? 0)
+                Spacer()
                 
                 if isNumbersLoading {
                     HStack {
@@ -72,6 +77,7 @@ struct GameView: View {
                     }
                 }
                 Spacer()
+                Spacer()
             }
             .padding()
             .navigationBarBackButtonHidden(true)
@@ -83,7 +89,7 @@ struct GameView: View {
                 if showGameOver {
                     PopupGameOver()
                 }
-        })
+            })
         .onAppear() {
             Task {
                 if sum == 0 {

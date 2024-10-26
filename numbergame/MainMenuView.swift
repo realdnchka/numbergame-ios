@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainMenu: View {
-    private let menuItems: [String] = ["New Game", "Leaderboard", "Profile", "Settings"]
+    private let menuItems: [String] = ["NEW GAME", "LEADERBOARD", "PROFILE", "SETTINGS"]
     @State var numbers: Numbers?
     
     var body: some View {
@@ -20,11 +20,15 @@ struct MainMenu: View {
                     Loader()
                 } else {
                     VStack {
-                        Loader(size: 64, duration: 10)
+                        Spacer()
+                        Loader(size: 96, duration: 10)
+                        Spacer()
                         MenuButton(text: menuItems[0], destination: GameView(numbers: numbers, sum: numbers?.sum))
-                        MenuButton(text: menuItems[1], isDisabled: true, destination: MainMenu())
+                        MenuButton(text: menuItems[1], destination: LeaderboardView())
                         MenuButton(text: menuItems[2], destination: UserProfile())
                         MenuButton(text: menuItems[3], isDisabled: true, destination: MainMenu())
+                        Spacer()
+                        Spacer()
                     }
                 }
             }

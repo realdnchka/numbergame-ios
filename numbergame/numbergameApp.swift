@@ -11,7 +11,10 @@ import SwiftUI
 struct numbergameApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            NavigationStack {
+                LoginView()
+            }
+            .tint(Color("Button"))
         }
     }
 }

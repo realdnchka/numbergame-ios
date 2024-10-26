@@ -17,6 +17,7 @@ struct PopUp<Content: View>: View {
     var body: some View {
         ZStack {
             Color("Background")
+                .ignoresSafeArea(.all)
             content
         }
         .frame(width: 240, height: 160)
@@ -26,18 +27,21 @@ struct PopUp<Content: View>: View {
 }
 
 struct PopupGameOver: View {
-    let menuItems: [String] = ["New Game", "Watch Ad", "Exit to Menu"]
+    let menuItems: [String] = ["NEW GAME", "WATCH AD", "EXIT TO MENU"]
     @State var numbers: Numbers?
     var body: some View {
         PopUp {
             NavigationView {
-                VStack {
-                    Text("Time over!")
-                    MenuButton(text: menuItems[0], destination: GameView(numbers: numbers, sum: numbers?.sum)).task {
-                        numbers = await getNumbers()
+                ZStack {
+                    Color("Background")
+                    VStack {
+                        Text("Time over!")
+                        MenuButton(text: menuItems[0], destination: GameView(numbers: numbers, sum: numbers?.sum)).task {
+                            numbers = await getNumbers()
+                        }
+                        MenuButton(text: menuItems[1], isDisabled: true, destination: MainMenu())
+                        MenuButton(text: menuItems[2], destination: MainMenu())
                     }
-                    MenuButton(text: menuItems[1], isDisabled: true, destination: MainMenu())
-                    MenuButton(text: menuItems[2], destination: MainMenu())
                 }
             }
         }
