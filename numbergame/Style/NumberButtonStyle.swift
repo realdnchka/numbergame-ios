@@ -14,7 +14,8 @@ struct NumberButtonPressedStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
             configuration.label
             .frame(width:64, height: 64)
-            .font(.system(size: 42))
+            .font(.system(size: 38))
+            .fontWeight(.medium)
             .foregroundColor(fontColor)
             .background(buttonColor)
             .cornerRadius(10)
@@ -30,7 +31,8 @@ struct NumberButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
             configuration.label
             .frame(width:64, height: 64)
-            .font(.system(size: 42))
+            .font(.system(size: 38))
+            .fontWeight(.medium)
             .foregroundColor(fontColor)
             .background(buttonColor)
             .cornerRadius(10)

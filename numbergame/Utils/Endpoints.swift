@@ -99,6 +99,20 @@ func userGetData() async throws -> User {
     }
 }
 
+func getLeaderboard() async throws -> [LeaderboardEndtry] {
+    do {
+        let response: [LeaderboardEndtry] = try await RequestBuilder()
+            .withEndpoint(endpoint: "getLeaderboard")
+            .withMethod(method: .GET)
+            .sendRequest()
+            .decodeResponse()
+        
+        return response
+    } catch {
+        throw error
+    }
+}
+
 func sendScore(score: Int) async throws {
     do {
         try await RequestBuilder()
@@ -109,6 +123,12 @@ func sendScore(score: Int) async throws {
     } catch {
         throw error
     }
+}
+
+struct LeaderboardEndtry: Identifiable, Codable {
+    var id: String { username }
+    let username: String
+    let highscore: Int
 }
 
 struct User: Codable {
