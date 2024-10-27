@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct UserProfile: View {
-    @State var isDataLoaded: Bool = false
-    @State private var user: User?
     
     var body: some View {
         NavigationStack {
@@ -18,27 +16,18 @@ struct UserProfile: View {
                     .ignoresSafeArea(.all)
                 
                 VStack {
-                    if !isDataLoaded {
-                        Loader()
-                    } else {
-                        Text("Username: \(UserDefaults.standard.string(forKey: "username") ?? "Unknown")")
-                        HStack {
-                            Text("Highest score: ")
-                            Score(scores: user?.highscore ?? 0)
-                        }
+                    Text("Username: \(UserDefaults.standard.string(forKey: "username") ?? "Unknown")")
+                    HStack {
+                        Text("Highest score: ")
+                        Score(scores: Int(UserDefaults.standard.string(forKey: "highscore")!) ?? 0)
                     }
                 }
             }
         }
-        .onAppear() {
-            Task {
-                user = try await userGetData()
-                isDataLoaded = true
-            }
-        }
-        
     }
+    
 }
+
 
 #Preview {
     MainMenu()

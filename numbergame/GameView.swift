@@ -71,6 +71,7 @@ struct GameView: View {
                             Task {
                                 if try await userGetData().highscore < score {
                                     try await sendScore(score: score)
+                                    UserDefaults.standard.set(score, forKey: "highscore")
                                 }
                             }
                         }
