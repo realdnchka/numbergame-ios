@@ -29,14 +29,20 @@ struct GameView: View {
                         GameTimer(countdownTimer: countdownTimer)
                         HStack {
                             Spacer()
-                            Spacer()
                             Score(scores: score)
                         }
                     }
                 }
                 
                 Spacer()
-                SumButton(sum: sum ?? 0)
+                
+                if isNumbersLoading {
+                    SumButtonLoading()
+                        .frame(width: 64, height: 64)
+                } else {
+                    SumButton(sum: sum ?? 0)
+                }
+                
                 Spacer()
                 
                 if isNumbersLoading {
@@ -65,11 +71,13 @@ struct GameView: View {
                             }
                         }
                     }
-                    .onChange(of: countdownTimer.timeRemaining) {
-                        if countdownTimer.timeRemaining == 0 {
+                    .onChange(of: countdownTimer.timeRemaining) { time in
+                        if time == 0 {
                             showGameOver.toggle()
                             Task {
-                                if try await userGetData().highscore < score {
+                                let userData = try await userGetData()
+                                
+                                if userData.highscore < score {
                                     try await sendScore(score: score)
                                     UserDefaults.standard.set(score, forKey: "highscore")
                                 }
@@ -77,6 +85,7 @@ struct GameView: View {
                         }
                     }
                 }
+                
                 Spacer()
                 Spacer()
             }
@@ -102,6 +111,7 @@ struct GameView: View {
     
     func newSetOfNumbers() async {
         isNumbersLoading = true
+        try? await Task.sleep(nanoseconds: 2_000_000_000)
         numbers = await getNumbers(count: 5)
         isNumbersLoading = false
         currentSum = 0

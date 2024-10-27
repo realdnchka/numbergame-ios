@@ -27,3 +27,28 @@ struct SumButton: View {
 #Preview {
     SumButton()
 }
+
+struct SumButtonLoading: View {
+    @State var start = UnitPoint(x: -1, y: 0.5)
+    @State var end = UnitPoint(x: 0, y: 0.5)
+    
+    var body: some View {
+        let startColor: Color = Color("ButtonLoadingStart")
+        let endColor: Color = Color("ButtonLoadingEnd")
+        
+        Image("SumButton")
+            .shadow(radius: 2)
+            .overlay(
+                LinearGradient(gradient: Gradient(colors: [startColor, endColor, endColor, startColor]), startPoint: start, endPoint: end)
+                    .mask(
+                        Image("SumButton")
+                    )
+                    .onAppear() {
+                        withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: false)) {
+                            self.start = UnitPoint(x: 1, y: 0.5)
+                            self.end = UnitPoint(x: 2, y: 0.5)
+                        }
+                    }
+            )
+    }
+}
