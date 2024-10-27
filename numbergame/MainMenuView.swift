@@ -10,13 +10,14 @@ import SwiftUI
 struct MainMenu: View {
     private let menuItems: [String] = ["NEW GAME", "LEADERBOARD", "PROFILE", "SETTINGS"]
     @State var numbers: Numbers?
+    @State var userData: User?
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color("Background")
                     .ignoresSafeArea(.all)
-                if numbers == nil {
+                if numbers == nil && userData == nil  {
                     Loader()
                 } else {
                     VStack {
@@ -37,6 +38,8 @@ struct MainMenu: View {
         .onAppear() {
             Task {
                 numbers = await getNumbers()
+                userData = try await userGetData()
+                UserDefaults.standard.set(userData?.highscore, forKey: "highscore")
             }
         }
         
