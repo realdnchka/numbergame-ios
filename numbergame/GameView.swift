@@ -110,13 +110,14 @@ struct GameView: View {
     }
     
     func newSetOfNumbers() async {
+        countdownTimer.stop()
         isNumbersLoading = true
-        try? await Task.sleep(nanoseconds: 2_000_000_000)
         numbers = await getNumbers(count: 5)
         isNumbersLoading = false
         currentSum = 0
         isPressedStates = Array(repeating: false, count: 5)
         sum = numbers?.sum ?? 0
+        countdownTimer.start()
     }
 }
 
