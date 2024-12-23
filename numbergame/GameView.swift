@@ -11,7 +11,7 @@ struct GameView: View {
     @State var isNumbersLoading: Bool = false
     
     //Timer variables
-    @StateObject var countdownTimer = CountdownTimer(duration: 60)
+    @StateObject var countdownTimer = CountdownTimer(duration: 5)
     
     //Score variables
     @State var score: Int = 0
@@ -72,7 +72,7 @@ struct GameView: View {
                         }
                     }
                     .onChange(of: countdownTimer.timeRemaining) { time in
-                        if time == 0 {
+                        if time <= 0 {
                             showGameOver.toggle()
                             Task {
                                 let userData = try await userGetData()
