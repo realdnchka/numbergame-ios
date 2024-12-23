@@ -37,7 +37,6 @@ struct LoginView: View {
                 } else {
                     isLoggedIn = false
                 }
-                showLoader = false
             }
         }
         .onDisappear() {
