@@ -11,7 +11,7 @@ struct GameView: View {
     @State var isNumbersLoading: Bool = false
     
     //Timer variables
-    @StateObject var countdownTimer = CountdownTimer(duration: 5)
+    @StateObject var countdownTimer = CountdownTimer(duration: 60)
     
     //Score variables
     @State var score: Int = 0
