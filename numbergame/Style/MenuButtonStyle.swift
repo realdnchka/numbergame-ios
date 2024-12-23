@@ -13,13 +13,13 @@ struct MenuButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(width: 128, height: 32)
-            .font(.system(size: 16))
+            .frame(width: 192, height: 48)
+            .font(.system(size: 22))
             .foregroundColor(fontColor)
             .background(buttonColor)
             .cornerRadius(15)
             .shadow(radius: 5.0)
-            .fontWeight(.bold)
+            .fontWeight(.heavy)
     }
 }
 
@@ -29,8 +29,8 @@ struct MenuButtonPressedStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(width: 128, height: 32)
-            .font(.system(size: 16))
+            .frame(width: 192, height: 48)
+            .font(.system(size: 20))
             .foregroundColor(fontColor)
             .background(buttonColor)
             .cornerRadius(15)

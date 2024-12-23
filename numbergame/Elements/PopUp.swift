@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PopUp<Content: View>: View {
     let content: Content
+    var width: CGFloat = 240
+    //    var height: CGFloat = 240
     
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
@@ -20,7 +22,7 @@ struct PopUp<Content: View>: View {
                 .ignoresSafeArea(.all)
             content
         }
-        .frame(width: 240, height: 160)
+        .frame(width: width)
         .cornerRadius(10.0)
         .shadow(radius: 20.0)
     }
@@ -45,6 +47,7 @@ struct PopupGameOver: View {
                 }
             }
         }
+        .frame(height: 240)
     }
 }
 
@@ -57,11 +60,32 @@ struct PopupRegistration: View {
         PopUp {
             ZStack {
                 VStack {
-                    TextField("Your username:", text: $usernameInput)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
+                    //                    TextField("Username:", text: $usernameInput)
+                    //                        .multilineTextAlignment(.center)
+                    //                        .padding(12)
+                    //                        .background(Color("ButtonPressed"))
+                    //                        .foregroundColor(Color("FontButtonPressed"))
+                    //                        .cornerRadius(15.0)
+                    //                        .frame(width: 192)
+                    //                        .font(.system(size: 18, weight: .bold))
+                    //                        .autocapitalization(.none)
+                    ZStack {
+                        TextField("", text: $usernameInput)
+                            .multilineTextAlignment(.center)
+                            .frame(width: 192, height: 48)
+                            .background(Color("InputBackground"))
+                            .foregroundColor(Color("FontButtonPressed"))
+                            .cornerRadius(15.0)
+                            .font(.system(size: 22, weight: .bold))
+                            .autocapitalization(.none)
+                        Text("Enter your username:")
+                            .font(.system(size: 12, weight: .medium))
+                        //                            .foregroundColor(Color("InputText"))
+                            .offset(x: -32, y: -24)
+                    }
+                    .frame(width: 192)
                     
-                    Button("Register") {
+                    Button("REGISTER") {
                         Task {
                             showLoader = true
                             try await registerUser(username: usernameInput)
@@ -73,5 +97,10 @@ struct PopupRegistration: View {
                 }
             }
         }
+        .frame(height: 160)
     }
+}
+
+#Preview {
+    PopupRegistration(isLoggedIn: .constant(false), showLoader: .constant(false))
 }
